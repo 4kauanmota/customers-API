@@ -6,17 +6,18 @@ import {
 } from "fastify";
 import { CreateCustomerController } from "./controllers/CreateCustomerController";
 import { ListCustomerController } from "./controllers/ListCustomerController";
+import { DeleteCustomerController } from "./controllers/DeleteCustomerController";
 
 export async function routes(
   fastify: FastifyInstance,
-  options: FastifyPluginOptions
+  _: FastifyPluginOptions
 ) {
   fastify.get("/test", async (request: FastifyRequest, reply: FastifyReply) => {
     return { hello: "world" };
   });
 
   fastify.post(
-    "/create/customer",
+    "/customer",
     {
       schema: {
         body: {
@@ -35,9 +36,27 @@ export async function routes(
   );
 
   fastify.get(
-    "/list/customer",
+    "/customers",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new ListCustomerController().handle(request, reply);
+    }
+  );
+
+  fastify.delete(
+    "/customer",
+    {
+      schema: {
+        querystring: {
+          type: "object",
+          required: ["id"],
+          properties: {
+            id: { type: "string" },
+          },
+        },
+      },
+    },
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new DeleteCustomerController().handle(request, reply);
     }
   );
 }
