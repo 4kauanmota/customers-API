@@ -101,7 +101,7 @@ yarn run dev
 
 ### Desktop
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/-9ekNzTfJ8E/0.jpg)](https://www.youtube.com/watch?v=-9ekNzTfJ8E "lianaToledo_portfolio - Desktop 1.0.0")
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/3yMXbgJfxhY/0.jpg)](https://www.youtube.com/watch?v=3yMXbgJfxhY)
 
 <br>
 
